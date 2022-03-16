@@ -1,10 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const { createCanvas } = require('canvas');
+const { createCanvas, registerFont } = require('canvas');
 const CanvasTextWrapper = require('canvas-text-wrapper').CanvasTextWrapper;
 
 const width = 1000;
 const height = 500;
+registerFont('fonts/Lato-Regular.ttf', { family: 'Lato' });
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.post('/generate', async (req, res) => {
 
   CanvasTextWrapper(canvas, quote, {
     font: 'Lato',
+    maxFontSizeToFill: 84,
     paddingX: 10,
     paddingY: 10,
     verticalAlign: 'middle',
