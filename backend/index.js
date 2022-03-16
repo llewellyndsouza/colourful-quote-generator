@@ -9,6 +9,7 @@ const height = 500;
 registerFont('fonts/Lato-Regular.ttf', { family: 'Lato' });
 
 const app = express();
+const PORT = process.env.PORT || 3500;
 
 app.use(cors());
 app.use(express.json());
@@ -48,7 +49,7 @@ app.post('/generate', async (req, res) => {
   res.end(buffer);
 });
 
-app.listen(3500, () => {
+app.listen(PORT, () => {
   console.log(`Server started on port ${3500}`);
   console.log(`http://localhost:${3500}/`);
 });
