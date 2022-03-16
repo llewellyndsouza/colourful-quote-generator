@@ -24,7 +24,7 @@ const refreshImage = async ({ quote, color, setImage }) => {
   // console.log({ quote, color });
   if (!(color && quote)) return;
   // console.log({ modified: hslToHex(color.hue, color.saturation * 100, color.brightness * 100, color.alpha) });
-  const response = await fetch('http://localhost:3500/generate', {
+  const response = await fetch(process.env.REACT_APP_BASE_URL + '/generate', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -64,7 +64,7 @@ function App() {
   return (
     <div
       style={{
-        margin: '32px 37px',
+        padding: '32px 37px',
       }}
     >
       <TextField label="Your quote" value={quote} onChange={handleChange} autoComplete="off" placeholder="Enter a quote" />
@@ -72,6 +72,14 @@ function App() {
       <ColorPicker onChange={setColor} color={color} allowAlpha />
       <br />
       {image && <img src={image} alt="generated content"></img>}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '20px',
+        }}
+      >
+        By Llewellyn Dsouza - Source code on <a href="https://github.com/llewellyndsouza/colourful-quote-generator">Github</a>
+      </div>
     </div>
   );
 }
