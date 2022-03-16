@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/generate', async (req, res) => {
-  const { quote = '', color = '#fff' } = req.body;
+  const { quote, color } = req.body;
 
   // create canvas
   const canvas = createCanvas(width, height);

@@ -2,6 +2,6 @@ POST http://localhost:3500/generate HTTP/1.1
 Content-Type: application/json
 
 {
-  "quote": "YolosYolos YolosYolosY olosYolos YolosYolos YolosYolosYolos YolosYolos Yolos YolosYo losYol osYolos",
-  "color": "#fff"
+  "quote": "Hey there my y'all, whats up?",
+  "color": "#ffffffff"
 }
