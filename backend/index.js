@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { createCanvas, registerFont } = require('canvas');
 const CanvasTextWrapper = require('canvas-text-wrapper').CanvasTextWrapper;
 
@@ -12,9 +13,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('YAY');
-});
+app.use(express.static(path.resolve(__dirname, 'build')));
+
+// app.get('/', (req, res) => {
+//   res.send('YAY');
+// });
 
 app.post('/generate', async (req, res) => {
   const { quote, color } = req.body;
