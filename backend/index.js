@@ -41,7 +41,6 @@ app.post('/generate', async (req, res) => {
   });
 
   const buffer = canvas.toBuffer('image/png');
-  console.log(buffer);
   res.setHeader('Content-Type', 'image/png');
   res.end(buffer);
 });
